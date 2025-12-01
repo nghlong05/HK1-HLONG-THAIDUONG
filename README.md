@@ -1,4 +1,3 @@
-# HK1-HLONG-THAIDUONG
 BÁO CÁO THỰC HÀNH HK1 – LỚP 12
 WEBSITE THEO MẪU W3.CSS (BAND TEMPLATE)
 
@@ -12,9 +11,9 @@ Huỳnh Trương Thái Dương 1906056
 Chủ đề
 Những nét đặc sắc của nhà hàng Maruten
 Link GitHub Repo
-https://github.com/nghlong05/HK1 
+https://github.com/nghlong05/HK1-HLONG-THAIDUONG  
 Link GitHub Pages
-https://nghlong05.github.io/HK1/ 
+https://nghlong05.github.io/HK1-HLONG-THAIDUONG/ 
 Ngày nộp
 [5/12/2025]
 
