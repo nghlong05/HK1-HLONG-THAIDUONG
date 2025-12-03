@@ -1,4 +1,5 @@
 /* Font Nhật */
+/* Đã giữ nguyên */
 body {
   background: #faf7f0;
   background-image:
@@ -9,16 +10,20 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
   line-height: 1.7;
   text-align: center;
-  body {
+}
+
+/* ⚠️ KHÔNG NÊN LẶP LẠI BODY TRONG BODY */
+/* Xóa bỏ phần này nếu nó có trong file gốc:
+body {
     background:
       repeating-linear-gradient(45deg, rgba(255,255,255,.2) 0 3px, transparent 3px 6px),
       repeating-linear-gradient(-45deg, rgba(255,255,255,.15) 0 3px, transparent 3px 6px),
       #faf7f0;
-  }
-  
 }
+*/
 
 /* HERO BANNER */
+/* Đã giữ nguyên - Tốt cho di động */
 #hero {
   position: relative;
   height: 400px;
@@ -35,7 +40,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ảnh đầy đủ khung, không méo */
+  object-fit: cover;
   z-index: 0;
 }
 
@@ -61,6 +66,7 @@ body {
 
 
 /* HEADER */
+/* Đã giữ nguyên - Tốt cho di động */
 header {
   background: #d62828;
   padding: 20px;
@@ -69,6 +75,7 @@ header {
 }
 
 /* NAVIGATION */
+/* Thay đổi: Loại bỏ gap và cho phép menu cuộn (hoặc xếp chồng nếu cần) */
 nav {
   background: #222;
   display: flex;
@@ -80,6 +87,10 @@ nav ul {
   display: flex;
   gap: 20px;
   padding: 10px;
+  /* Thêm cuộn ngang cho màn hình quá nhỏ */
+  overflow-x: auto; 
+  /* Đảm bảo nội dung không bị vỡ dòng nếu không muốn cuộn */
+  white-space: nowrap; 
 }
 
 nav a {
@@ -92,6 +103,7 @@ nav li:hover > a {
 }
 
 /* DROPDOWN */
+/* Giữ nguyên */
 .dropdown {
   position: relative;
 }
@@ -113,23 +125,30 @@ nav li:hover > a {
 
 /* MAIN */
 main {
-  padding: 20px;
+  padding: 10px; /* Giảm padding */
   max-width: 900px;
   margin: 0 auto;
 }
 
-.card-container {
+/* Tối ưu hóa cho di động: chuyển card sang một cột */
+.card-container,
+.review-container {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  /* Thay đổi quan trọng: cho phép các item xuống dòng */
+  flex-wrap: wrap; 
+  /* Giảm khoảng cách cho di động */
+  gap: 15px; 
+  /* Đảm bảo căn giữa */
+  justify-content: center; 
 }
 
 .card {
   background: white;
   padding: 20px;
   border-radius: 10px;
-  width: 250px;
+  /* Thay đổi quan trọng: Cho phép card mở rộng hơn trên di động */
+  width: 100%; 
+  max-width: 300px; /* Giới hạn tối đa để nó không quá rộng trên máy tính bảng */
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   transition: 0.3s;
 }
@@ -143,26 +162,20 @@ main {
 #img-change {
   width: 100%;
   max-width: 600px;
-  height: 350px;
-  object-fit: cover;
+  height: auto; /* Thay đổi: Dùng auto để ảnh tự điều chỉnh chiều cao, tránh bị cắt */
   border-radius: 10px;
   cursor: pointer;
   transition: opacity .3s;
 }
 
 /* REVIEW */
-.review-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
+/* Đã gộp với .card-container */
 .review-card {
   background: #fff4e6;
   padding: 20px;
   border-radius: 10px;
-  width: 250px;
+  width: 100%; /* Thay đổi */
+  max-width: 300px; /* Giới hạn tối đa */
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   transition: 0.3s;
 }
@@ -173,6 +186,7 @@ main {
 }
 
 /* FADE-IN EFFECT */
+/* Giữ nguyên */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -185,6 +199,7 @@ main {
 }
 
 /* FOOTER */
+/* Giữ nguyên cấu trúc cơ bản */
 footer {
   padding: 15px;
   background: #222;
@@ -193,7 +208,7 @@ footer {
 }
 ul {
   list-style: none;
-  padding-left: 0; /* để không bị lệch trái */
+  padding-left: 0;
   margin-left: 0;
 }
 /* Full width + khoảng cách đều */
@@ -232,45 +247,50 @@ section + section {
   margin-top: 40px;
 }
 h1 {
-  font-size: 40px;
+  font-size: 32px; /* Giảm kích thước H1 cho di động */
   font-weight: 700;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 26px; /* Giảm kích thước H2 cho di động */
   font-weight: 700;
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 20px; /* Giảm kích thước H3 cho di động */
   font-weight: 600;
 }
 /* Khung chứa tổng thể để đặt form và ảnh sushi cạnh nhau */
+/* Thay đổi quan trọng: Cho phép xếp chồng trên di động */
 .reservation-container {
   display: flex;
-  justify-content: center; /* Căn giữa theo chiều ngang */
-  align-items: center; /* Căn giữa theo chiều dọc */
-  padding: 40px 20px; /* Thêm padding tổng thể */
+  justify-content: center;
+  align-items: center;
+  padding: 40px 10px; /* Giảm padding */
+  flex-direction: column; /* Mặc định là column (xếp chồng) */
 }
 
 /* Khung đặt bàn (giữ nguyên phong cách Nhật) */
 .reservation-box {
   background: #faf3dd;
   border: 14px solid transparent;
-  border-image: url("https://i.imgur.com/MVgPpGe.png") 30 round; /* sumi brush */
+  border-image: url("https://i.imgur.com/MVgPpGe.png") 30 round;
   border-radius: 8px;
-  padding: 60px 40px;
-  width: 100%; /* Đảm bảo nó không chiếm hết không gian */
+  padding: 40px 20px; /* Giảm padding */
+  width: 100%;
   max-width: 500px;
-  margin: 0; /* Loại bỏ margin không cần thiết */
+  margin: 0;
+  box-sizing: border-box; /* Đảm bảo padding không làm tràn width */
 }
 
 /* Định vị và style cho hình ảnh Sushi */
 .sushi-image {
-  max-width: 300px; /* Điều chỉnh kích thước miếng sushi */
+  max-width: 250px; /* Giảm kích thước miếng sushi */
   height: auto;
-  margin-left: 40px; /* Tạo khoảng cách giữa form và sushi */
-  display: block; /* Đảm bảo nó hiển thị đúng */
+  margin-top: 30px; /* Thêm khoảng cách trên cùng */
+  margin-left: 0; /* Loại bỏ margin-left */
+  display: block;
+  order: 2; /* Đặt ảnh sau form trên di động (column order) */
 }
 
 /* Form (Giữ nguyên) */
@@ -279,13 +299,14 @@ h3 {
   max-width: 500px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 15px; /* Giảm gap */
+  margin-top: 0;
+  order: 1; /* Đặt form trước ảnh trên di động (column order) */
 }
 
 /* Label Nhật (Giữ nguyên) */
 .reservation-form label {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: #3a2f2f;
   letter-spacing: 1px;
@@ -293,8 +314,8 @@ h3 {
 
 /* Input (Giữ nguyên) */
 .reservation-form input {
-  padding: 12px 15px;
-  font-size: 18px;
+  padding: 10px 12px;
+  font-size: 16px;
   border: 2px solid #c9b9a4;
   border-radius: 6px;
   background: #fffdf8;
@@ -309,9 +330,9 @@ h3 {
 
 /* Nút Submit – phong cách Nhật (Giữ nguyên) */
 .reservation-form button {
-  margin-top: 15px;
-  padding: 15px;
-  font-size: 20px;
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 18px;
   background: #d62828;
   color: white;
   font-weight: 600;
@@ -324,32 +345,32 @@ h3 {
 .reservation-form button:hover {
   background: #b11f1f;
 }
+
 /* Container chính của Footer */
+/* Thay đổi quan trọng: Xếp chồng khi trên di động */
 footer {
-  /* Thiết lập lại Flexbox */
   display: flex;
-  
-  /* Đảm bảo nội dung trải rộng và đẩy hai phần tử ra hai bên */
-  justify-content: space-between; 
-  
-  /* Căn giữa tuyệt đối theo chiều dọc (RẤT QUAN TRỌNG) */
+  /* Thay đổi: Mặc định là flex-direction: column cho di động */
+  flex-direction: column; 
+  /* Căn giữa tất cả các mục */
   align-items: center; 
   
-  /* Bắt buộc chiếm toàn bộ chiều ngang để justify-content hoạt động */
   width: 100%; 
-  
-  padding: 15px 30px; 
+  padding: 15px 10px; /* Giảm padding */
   background-color: #333; 
   color: #fff; 
   font-size: 14px;
-  box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng tổng thể */
+  box-sizing: border-box;
+  text-align: center; /* Đảm bảo text căn giữa */
 }
 
 /* Container chứa các liên kết mạng xã hội */
 .social-links {
   display: flex; 
-  align-items: center; /* Căn giữa các icon với nhau */
+  align-items: center;
   gap: 15px; 
+  /* Thay đổi: Thêm khoảng cách trên/dưới cho social links khi xếp chồng */
+  margin: 10px 0; 
 }
 
 /* Định kiểu cho các icon */
@@ -363,4 +384,64 @@ footer {
 /* Hiệu ứng khi di chuột (hover) */
 .social-links a:hover {
   color: #ff9800; 
+}
+
+/* ============================================== */
+/* 🔑 MEDIA QUERIES - ĐIỀU CHỈNH CHO MÀN HÌNH LỚN HƠN (Tablet/Desktop) */
+/* ============================================== */
+@media (min-width: 768px) {
+    /* NAVIGATION: Trở lại layout ban đầu */
+    nav ul {
+        overflow-x: visible;
+        white-space: normal;
+    }
+
+    /* MAIN: Trở lại layout ban đầu */
+    main {
+        padding: 20px;
+    }
+
+    /* CARD: Trở lại layout ban đầu */
+    .card-container,
+    .review-container {
+        gap: 20px;
+        flex-wrap: nowrap; /* Nếu muốn ngăn xuống dòng trên desktop */
+    }
+    .card,
+    .review-card {
+        width: 250px;
+        max-width: none;
+    }
+
+    /* HEADINGS: Trở lại kích thước lớn hơn */
+    h1 { font-size: 40px; }
+    h2 { font-size: 30px; }
+    h3 { font-size: 22px; }
+
+    /* RESERVATION: Trở lại layout ngang */
+    .reservation-container {
+        flex-direction: row; /* Chuyển sang layout ngang */
+        justify-content: center;
+        padding: 40px 20px;
+    }
+    .reservation-box {
+        padding: 60px 40px;
+        width: 100%;
+    }
+    .sushi-image {
+        max-width: 300px;
+        margin-left: 40px;
+        margin-top: 0;
+        order: initial; /* Trở lại thứ tự bình thường */
+    }
+
+    /* FOOTER: Trở lại layout ngang */
+    footer {
+        flex-direction: row; /* Chuyển sang layout ngang */
+        justify-content: space-between;
+        padding: 15px 30px;
+    }
+    .social-links {
+        margin: 0;
+    }
 }
